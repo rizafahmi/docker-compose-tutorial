@@ -1,18 +1,12 @@
 version: '3.9'
 services:
   web:
-    build: './web/'
+    build: .
     ports:
       - '5000:5000'
     volumes:
-      - './web/:/code'
+      - '.:/code'
     environment:
       FLASK_ENV: development
   redis:
     image: 'redis:alpine'
-  nginx:
-    image: 'nginx:stable-alpine'
-    ports:
-      - '80:80'
-    volumes:
-      - './nginx/:/etc/nginx/'
